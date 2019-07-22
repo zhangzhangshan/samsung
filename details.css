@@ -1,0 +1,93 @@
+*{
+    margin:0;padding:0;
+    box-sizing:border-box;
+}
+ul{
+    list-style:none;
+}
+a{
+    color:#363636;
+    text-decoration: none;
+}
+/* 面包屑导航 */
+.bread{
+    margin:0 307px;
+    padding:25px 30px;
+}
+ul>li{
+    color:#363636;
+    display:inline-block;
+    padding:0 5px;
+    font-size:14px;
+}
+ul>li:last-child{
+    color:#1428a0;
+}
+/* 详情最外层div */
+.details{
+    margin:0 307px;
+    padding:20px 30px;
+    position: relative;
+}
+/* 标签样式 */
+.icon-active-box{
+    position:absolute;
+    top:0;left:0;
+    padding-right:7px;
+}
+.icon{
+    font-style:normal !important;
+    font-weight:normal;
+}
+.icon-active-box lable:first-child{
+    margin-top:0;
+}
+.icon-active-box .icon{
+    height:auto !important;
+    padding:1px 5px 2px 5px;
+    display:block;
+    margin-top:11px;
+    font-size:20px;
+    color:#fff;
+    height:20px;
+    line-height:30px;
+    padding:0 5px;
+    position:relative;
+    opacity:.9;
+}
+.icon-orange{
+    background-color:#ed5e2f;
+    opacity:.9;
+}
+.icon-active-box .icon span{
+    max-width:40px;
+    display:block;
+}
+.icon-orange>i.arrow-top{
+    border-right-width:7px;
+    border-top-width:17px;
+}
+.icon-orange>i.arrow-bottom{
+    top:auto;
+    bottom:0;border:0;
+    border-right-width:7px;
+    border-bottom-width:17px;
+    border-right:7px solid transparent;
+    border-bottom:15px solid #ed5e2f;
+}
+.icon-active-box .icon>i{
+    position: absolute;
+    top:0;left:100%;
+    border:1;
+    border-right:7px solid transparent;
+    border-top:15px solid #ed5e2f;
+    width:0;
+    height:0;
+    display: inline-block;
+    zoom:1;
+    vertical-align: middle;
+}
+/* .icon-active-box>:last-child>i.arrow-bottom{
+    position: absolute;
+    top:0;left:0;
+} */
