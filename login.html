@@ -17,12 +17,13 @@
          </div>
          <div class="form">
             <h2>请选择登录方式</h2>
-            <ul>
+            <ul id="icons">
                <li><a href="javascript:;"><img src="./images/right-wechat.png" alt=""></a></li>
                <li><a href="javascript:;"><img src="./images/right-alipay.png" alt=""></a></li>
                <li><a href="javascript:;"><img src="./images/right-estore.png" alt=""></a></li>
                <li><a href="javascript:;"><img src="./images/right-message.png" alt=""></a></li>
             </ul>
+            <div id="erweima" class="hide"></div>
             <div class="user">
                <span></span>
                <p>还没有三星账号</p>
@@ -31,10 +32,22 @@
             <button class="btn">立即注册</button>
             <div class="help">
                <a href="javascript:;">获得更多帮助</a>
-               <p>使用微信、支付宝、短信登录，<br/>绑定三星会员账号后才可享受积分等福利</p>
+               <p>使用微信、支付宝、短信登录，
+                绑定三星会员账号后才可享受积分等福利</p>
             </div>
          </div>
       </div>
    </div>
 </body>
+<script>
+var erweima=document.getElementById("erweima");
+var icons=document.getElementById("icons");
+icons.onclick=function(e){
+    if(e.target.nodeName=="IMG"&&erweima.className=="hide"){
+        erweima.className="show";
+    }else if(e.target.nodeName=="IMG"&&erweima.className=="show"){
+            erweima.className="hide";
+        }
+}
+</script>
 </html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/regs.css">
+</head>
+<body>
+    <div id="regs">
+        <div class="account">
+            <h1>三星账户</h1>
+            <p>创建三星账户</p>
+            <a href="javascript:;">探索更多三星服务></a>
+        </div>
+        <div class="clause">
+            <div class="form">
+                <p>点击一下链接并仔细阅读条款。继续使用即表示您确认已阅读并同意以下条款。</p>
+                <div class="posi">
+                    <input type="checkbox" id="in1"><label for="in1"></label><a href="javascript:;">条款和条件</a>以及<a href="javascript:;">特殊条款。</a></label><br>
+                    <div id="d1"></div>
+                </div>
+                <div class="posi">
+                    <input type="checkbox" id="in2"><label for="in2"></label><a href="javascript:;">三星隐私政策</a></label><br>
+                    <div id="d2"></div>
+                </div>
+                <div class="posi">
+                    <input type="checkbox" id="in3"><label for="in3"></label><a href="javascript:;">个人敏感信息收集使用说明(核心功能)</a></label><br>
+                    <div id="d3"></div>
+                </div>
+                <div class="posi">
+                    <input type="checkbox" id="in4"><label for="in4"></label><a href="javascript:;">其他特殊情形</a></label>
+                    <div id="d4"></div>
+                </div>
+            </div>
+            <div class="checkAgree">
+                <div class="posi">
+                    <label for="checkAll"><input type="checkbox" id="checkAll">我同意全部条款</label><br/>
+                    <div id="d5"></div>
+                </div>
+                <button id="agree" disabled>同意</button>
+                <button id="reject">拒绝</button>
+            </div>
+        </div>
+    </div>
+<script>
+/* 复选框选择DOM操作*/
+//找到全部选择的input
+var checkAll=document.getElementById("checkAll");
+//找到可以点击的input
+var in1=document.getElementById("in1");
+var in2=document.getElementById("in2");
+var in3=document.getElementById("in3");
+var in4=document.getElementById("in4");
+var ins=[in1,in2,in3,in4];
+//找到每个input后边的div
+// var d1=document.getElementById("d1");
+// var d2=document.getElementById("d2");
+// var d3=document.getElementById("d3");
+// var d4=document.getElementById("d4");
+// var d5=document.getElementById("d5");
+// var ds=[d1,d2,d3,d4];
+//找到同意按钮
+var agree=document.getElementById("agree");
+checkAll.onclick=function(){
+    if(checkAll.checked){//如果全选框是选中的话，就让所有选择框选中并且让下面的同意按钮变为禁用
+        for(var i=0;i<ins.length;i++){
+            ins[i].checked=true;
+            agree.disabled=false;
+        }
+    }else{//否则就让所有的选择框不选中，并且让下面的同意按钮变为未禁用
+        for(var i=0;i<ins.length;i++){
+            ins[i].checked=false;
+            agree.disabled=true;
+        }
+    }
+}
+for(var i of ins){
+    i.onclick=function(){
+        var i=this;
+        if(i.checked==false){//如果所有的选择框都选中，就让全选框选中，并且让下面的同意按钮变为未禁用
+            checkAll.checked=false;
+            agree.disabled=true;
+        }else{//否则，有一个选择框未选中，就让全选框取消选中，并且让下面的同意按钮变为禁用
+            //checkAll.checked=true;
+            var unclicked=document.querySelector(".form input:not(:checked)");//找到当前.form下所有input 的选中属性
+            //如果没有未选中的input 就让全选框选中，否则就取消全选框的选中状态
+            checkAll.checked= !unclicked ? true : false;
+            //用上面相同的方法判断下面按钮的禁用状态
+            agree.disabled= !unclicked ? false : true;
+        }
+    }
+}
+//bug   最后一个选择框选中全选框就会选中
+</script>
+</body>
+</html>
