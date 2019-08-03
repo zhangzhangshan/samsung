@@ -28,6 +28,121 @@ h3{
 div{
     display:block;
 }
+/* 轮播图样式 */
+#carousel{
+    width:1220px;
+    margin:0 auto;
+  }
+  #banner{
+    width:1220px;
+    overflow:hidden;
+    position:relative;
+  }
+  #ul-imgs{
+    list-style:none;
+  }
+  #ul-imgs.transition{
+    transition:all .5s linear;
+  }
+  #ul-imgs>li{
+    width:1220px;
+    float:left;
+  }
+  #ul-imgs img{
+    width:1220px;
+  }
+  #ul-idxs{
+    width:100px;
+    margin:0 auto;
+    list-style:none;
+    position:absolute;
+    bottom:25px;
+    left:50%;
+    margin-left:-50px;
+  }
+  #ul-idxs>li{
+    float:left;
+    width:10px; height:10px;
+    background-color:#fff;
+    border-radius:5px;
+    margin:0 5px;
+    cursor:pointer;
+  }
+  #ul-idxs>li.active{
+    background-color:blue;
+  }
+  @media screen and (min-width:1220px){
+    #carousel{
+        width:1220px;
+        margin:0 auto;
+      }
+      #banner{
+        width:1220px;
+        overflow:hidden;
+        position:relative;
+      }
+      #ul-imgs>li{
+        width:1220px;
+        float:left;
+      }
+      #ul-imgs img{
+        width:1220px;
+      }
+  }
+  @media screen and (min-width:992px) and (max-width:1219px){
+    #carousel{
+        width:992px;
+        margin:0 auto;
+      }
+      #banner{
+        width:992px;
+        overflow:hidden;
+        position:relative;
+      }
+      #ul-imgs>li{
+        width:992px;
+        float:left;
+      }
+      #ul-imgs img{
+        width:992px;
+      }
+  }
+  @media screen and (min-width:768px) and (max-width:991px){
+    #carousel{
+        width:768px;
+        margin:0 auto;
+      }
+      #banner{
+        width:768px;
+        overflow:hidden;
+        position:relative;
+      }
+      #ul-imgs>li{
+        width:768px;
+        float:left;
+      }
+      #ul-imgs img{
+        width:768px;
+      }
+  }
+  @media screen and (min-width:576px) and (max-width:767px){
+    #carousel{
+        width:576px;
+        margin:0 auto;
+      }
+      #banner{
+        width:576px;
+        overflow:hidden;
+        position:relative;
+      }
+      #ul-imgs>li{
+        width:576px;
+        float:left;
+      }
+      #ul-imgs img{
+        width:576px;
+      }
+  }
 /*1楼样式*/
 #f1{
     display:flex;
@@ -206,6 +321,122 @@ div{
     width:100%;
     vertical-align:center;
 }
+/* 小轮播图样式---------------------------------------------------------------------------------------------- */
+#small-carousel{
+    width:1220px;
+    margin:0 auto;
+  }
+  #small-banner{
+    width:1220px;
+    overflow:hidden;
+    position:relative;
+  }
+  .scroll #small-imgs{
+    list-style:none;
+  }
+  #small-imgs.transition{
+    transition:all .5s linear;
+  }
+  #small-imgs>li{
+    width:1220px;
+    float:left;
+  }
+  #small-imgs img{
+    width:1220px;
+  }
+  #small-idxs{
+    width:100px;
+    margin:0 auto;
+    list-style:none;
+    position:absolute;
+    bottom:15px;
+    left:50%;
+    margin-left:-50px;
+  }
+  #small-idxs>li{
+    float:left;
+    width:10px; height:10px;
+    background-color:#fff;
+    border-radius:5px;
+    margin:0 5px;
+    cursor:pointer;
+  }
+  #small-idxs>li.active{
+    background-color:blue;
+  }
+  @media screen and (min-width:1220px){
+    #small-carousel{
+        width:1220px;
+        margin:0 auto;
+      }
+      #small-banner{
+        width:1220px;
+        overflow:hidden;
+        position:relative;
+      }
+      #small-imgs>li{
+        width:1220px;
+        float:left;
+      }
+      #small-imgs img{
+        width:1220px;
+      }
+  }
+  @media screen and (min-width:992px) and (max-width:1219px){
+    #small-carousel{
+        width:992px;
+        margin:0 auto;
+      }
+      #small-banner{
+        width:992px;
+        overflow:hidden;
+        position:relative;
+      }
+      #small-imgs>li{
+        width:992px;
+        float:left;
+      }
+      #small-imgs img{
+        width:992px;
+      }
+  }
+  @media screen and (min-width:768px) and (max-width:991px){
+    #small-carousel{
+        width:768px;
+        margin:0 auto;
+      }
+      #small-banner{
+        width:768px;
+        overflow:hidden;
+        position:relative;
+      }
+      #small-imgs>li{
+        width:768px;
+        float:left;
+      }
+      #small-imgs img{
+        width:768px;
+      }
+  }
+  @media screen and (min-width:576px) and (max-width:767px){
+    #small-carousel{
+        width:576px;
+        margin:0 auto;
+      }
+      #small-banner{
+        width:576px;
+        overflow:hidden;
+        position:relative;
+      }
+      #small-imgs>li{
+        width:576px;
+        float:left;
+      }
+      #small-imgs img{
+        width:576px;
+      }
+  }
+/* ----------------------------------------------------------------------------------------------------------- */
 /* 热门产品 */
 .scetion{
     border:1px solid transparent;

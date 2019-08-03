@@ -9,13 +9,23 @@
 </head>
 <body>
     <!-- 轮播图 -->
-    <div>
-        <div>
-            <img style="width:100%" src="images/1440x555-8k-2.jpg">
-            <img style="display:none" src="images/190624_kv_NPC_1220_427.jpg">
-            <img style="display:none" src="images/190507_KV_GalaxyFold_1220_427.jpg">
-            <img style="display:none" src="images/190507_KV_SmartHone_1220_427.jpg">
-            <img style="display:none" src="images/190629_KV_WCG_1220_427.jpg">
+    <div id="carousel">
+        <div id="banner">
+            <ul id="ul-imgs" class="transition" style="width:600%; margin-left:0px;">
+                <li id="li1"><a href="javascript:;"><img src="images/190627_KV_S10_1220_427.jpg"></a></li>
+                <li><a href="javascript:;"><img src="images/190624_kv_NPC_1220_427.jpg"></a></li>
+                <li><a href="javascript:;"><img src="images/190507_KV_GalaxyFold_1220_427.jpg"></a></li>
+                <li><a href="javascript:;"><img src="images/190507_KV_SmartHone_1220_427.jpg"></a></li>
+                <li><a href="javascript:;"><img src="images/190629_KV_WCG_1220_427.jpg"></a></li>
+                <li><a href="javascript:;"><img src="images/190627_KV_S10_1220_427.jpg"></a></li>
+            </ul>
+            <ul id="ul-idxs">
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
         </div>
     </div>
     <div id="f1">
@@ -83,14 +93,36 @@
         <p class="title">活动专区</p>
         <div class="section banner-section everts-banner act-zone">
             <div class="scroll events-scroll act-scroll" style="margin-left:-233px;">
-                <div>
-                    <ul>
-                        <li class="kvScroll-Clone" style="display:block;">
-                            <a href="#">
-                                <img src="images/ban3.jpg">
-                            </a>
-                        </li>
-                    </ul>
+                <div id="small-carousel">
+                    <div id="small-banner">
+                        <ul id="small-imgs" class="transition" style="width:600%; margin-left:0px;">
+                            <li class="kvScroll-Clone" id="small-li">
+                                <a href="#">
+                                    <img src="images/ban3.jpg">
+                                </a>
+                            </li>
+                            <li class="kvScroll-Clone">
+                                <a href="#">
+                                    <img src="images/ban1.jpg">
+                                </a>
+                            </li>
+                            <li class="kvScroll-Clone">
+                                <a href="#">
+                                    <img src="images/ban2.jpg">
+                                </a>
+                            </li>
+                            <li class="kvScroll-Clone" id="small-li">
+                                <a href="#">
+                                    <img src="images/ban3.jpg">
+                                </a>
+                            </li>
+                        </ul>
+                        <ul id="small-idxs">
+                            <li class="active"></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -123,7 +155,7 @@
                     <li style="width:25%">
                         <div class="thumbnail hotSelling-rotation">
                             <a href="#" target="blank">
-                                <img id="hotSelling704" class="img1" src="images/A60.jpg" width="282px;" height="250px;" style="opacity:1;">
+                                <img id="hotSelling704" class="img1" src="images/A60_lg.jpg" width="282px;" height="250px;" style="opacity:1;">
                             </a>
                             <h3 rotationname="Galaxy S10+">
                                 Galaxy A60<br>
@@ -285,5 +317,201 @@
             </div>
         </div>
     </div>
+<script>
+// 轮播图js
+var i=0;//li初始的位置
+var LIWIDTH=document.getElementById("li1").offsetWidth;//每个li的宽度
+var LICOUNT=5;//li的实际个数
+var DURATION=500;//归零时间
+//查找需要移动的ul
+var ulImgs=document.getElementById("ul-imgs");
+//查找小圆点的ul
+var ulIdxs=document.getElementById("ul-idxs");
+//找到小圆点列表
+var lis=ulIdxs.children;
+//创建图片ul移动方式的函数
+function moveTo(to){
+    //如果用户未传入数值则让图片移动到下一张
+    if(to==undefined){
+        to=i+1;
+    }
+    //当图片在第一张时
+    if(i==0){
+        //如果ulimgs向左移动则不会出现错误
+        if(to>i){
+            ulImgs.classList="transition";
+            ulImgs.style.marginLeft=-i*LIWIDTH+"px";
+        }else{
+            //如果ulimgs向右移动则会出现空白，
+            //就让ulimgs瞬间整体向左移动4000，就不会出现空白
+            //移动前需要将ulimgs的过渡动画清除，则不会被用户发现移动的过程
+            ulImgs.classList="";
+            ulImgs.style.marginLeft=-LICOUNT*LIWIDTH+"px";
+            //设置一个定时器让前后去除ul class的操作有一定的间隔，
+            setTimeout(function(){
+                //在定时器内重新调用moveto函数
+                moveTo(LICOUNT-1)
+            },100);
+            return;
+        }
+    }
+    //如果用户传入了参数，就让图片跳转到第几张
+    i=to;
+    ulImgs.style.marginLeft=-i*LIWIDTH+"px";
+    //循环遍历每一个小圆点，为其清除class
+    for(var li of lis){
+        li.classList="";
+    }
+    //当i==licount时，就让ulimgs的class清除，并且让整个ulimgs位置回到最初的地方，然后让i的值为0
+    if(i==LICOUNT){
+        i=0;
+        setTimeout(function(){
+            //清除ulimgs的class
+            ulImgs.classList="";
+            //让ulimgs的位置回到初始位置
+            ulImgs.style.marginLeft=0
+        },DURATION);
+    }
+    //为当前选中的小圆点加上active  class
+    lis[i].classList="active";
+}
+// //为左右按钮绑定单击事件
+// //查找到两个按钮
+// var btnLeft=document.getElementById("btn-left");
+// var btnRight=document.getElementById("btn-right");
+// //定义一个开关
+// var canClick=true;
+// //定义一个不让用户在规定事件内点击移动ulimgs的函数
+// function move(n){//这个n只可能是1或者-1
+//     //如果开关是开着时，用户可以点击
+//     if(canClick){
+//         moveTo(n+i);
+//         //关闭开关
+//         canClick=false;
+//         setTimeout(function(){
+//             canClick=true;
+//         },DURATION+100);
+//     }
+// }
+// btnLeft.onclick=function(){
+//     move(-1);
+// }
+// btnRight.onclick=function(){
+//     move(1);
+// }
+//为轮播图设置自动播放
+var timer=setInterval(function(){
+    moveTo();
+},3000)
+//当鼠标移入banner中，清除定时器
+var banner=document.getElementById("banner");
+banner.onmouseover=function(){
+    clearInterval(timer);
+}
+//鼠标移出时开启定时器
+banner.onmouseout=function(){
+    timer=setInterval(function(){
+        moveTo();
+    },3000)
+}
+//利用事件委托为小圆点绑定单击事件
+var canClick=true;
+ulIdxs.onclick=function(e){
+    var li=e.target;
+    //如果开关打开
+    if(canClick){
+        //如果点击的是小圆点
+        if(li.nodeName=="LI"){
+            //如果不是当前选中的小圆点
+            if(li.className!="active"){
+                for(var i=0;i<lis.length;i++){
+                    if(lis[i]==li){
+                    break;
+                    }
+                }
+                moveTo(i)
+                setTimeout(function(){
+                    canClick=true
+                },DURATION)
+            }
+        }
+    }
+}
+</script>
+<script>
+//小轮播图的js
+var j=0;//li初始的位置
+var SMALIWIDTH=document.getElementById("small-li").offsetWidth;//每个小li的宽度
+//console.log(SMALIWIDTH)
+var SMALICOUNT=3;//li的实际个数
+//找到需要移动的小imgs
+var smallImgs=document.getElementById("small-imgs")
+//console.log(smallImgs);
+//找到小轮播的小圆点ul
+var smallIdxs=document.getElementById("small-idxs");
+//console.log(smallIdxs)
+var smalis=smallIdxs.children;
+//console.log(smalis)
+function MoveTo(To){
+    //如果用户未传入数值则让图片移动到下一张
+    if(To==undefined){
+        To=j+1;
+    }
+    //当图片在第一张时
+    if(j==0){
+        //如果smallImgs向左移动则不会出现错误
+        if(To>j){
+            smallImgs.classList="transition";
+            smallImgs.style.marginLeft=-j*LIWIDTH+"px";
+        }else{
+            //如果smallImgs向右移动则会出现空白，
+            //就让smallImgs瞬间整体向左移动4000，就不会出现空白
+            //移动前需要将smallImgs的过渡动画清除，则不会被用户发现移动的过程
+            smallImgs.classList="";
+            smallImgs.style.marginLeft=-LICOUNT*LIWIDTH+"px";
+            //设置一个定时器让前后去除ul class的操作有一定的间隔，
+            setTimeout(function(){
+                //在定时器内重新调用moveto函数
+                MoveTo(SMALICOUNT-1)
+            },100);
+            return;
+        }
+    }
+    //如果用户传入了参数，就让图片跳转到第几张
+    j=To;
+    smallImgs.style.marginLeft=-j*LIWIDTH+"px";
+    //循环遍历每一个小圆点，为其清除class
+    for(var sli of smalis){
+        sli.classList="";
+    }
+    //当j==samlicount时，就让smallImg的class清除，并且让整个smallimg位置回到最初的地方，然后让j的值为0
+    if(j==SMALICOUNT){
+        j=0;
+        setTimeout(function(){
+            //清除smallimg的class
+            smallImgs.classList="";
+            //让ulimgs的位置回到初始位置
+            smallImgs.style.marginLeft=0
+        },DURATION);
+    }
+    //为当前选中的小圆点加上active  class
+    smalis[j].className="active";
+}
+//为轮播图设置自动播放
+var stimer=setInterval(function(){
+    MoveTo();
+},3000)
+//当鼠标移入banner中，清除定时器
+var smabanner=document.getElementById("small-banner");
+smabanner.onmouseover=function(){
+    clearInterval(stimer);
+}
+//鼠标移出时开启定时器
+smabanner.onmouseout=function(){
+    stimer=setInterval(function(){
+        MoveTo();
+    },3000)
+}
+</script>
 </body>
 </html>
