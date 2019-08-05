@@ -156,30 +156,40 @@ div{
 /* 2楼样式 */
 #f2 .p_left{
     background-image:url(../images/btn_left.png);
-    width:58px;height:32px;
+    width:32px;height:32px;
     background-position:center;
     background-repeat: no-repeat;
     position: absolute;
-    top:136px;left:120px;
+    top:140px;left:70px;
     z-index:999;
+    transition:all .5s linear;
+}
+#f2 .p_left:hover{
+  background-image:url(../images/btn_left_hover.png);
+  border:1px solid #aaa;
 }
 #f2 .p_right{
     background-image:url(../images/btn_right.png);
-    width:58px;height:32px;
+    width:32px;height:32px;
     background-position:center;
     background-repeat: no-repeat;
     position: absolute;
-    top:136px;right:120px;
+    top:140px;right:70px;
     z-index:999;
+}
+#f2 .p_right:hover{
+  background-image:url(../images/btn_right_hover.png);
+  border:1px solid #aaa;
 }
 #f2{
     margin:0 143.5px;
     padding:15px 30px 22px 30px;
     position:relative;
+    overflow: hidden;
 }
 #f2>.nav{
     position:absolute;
-    top:-10px;left:370px;
+    top:-10px;left:50px;
     text-align:center;
     height:13%;
 }
@@ -189,24 +199,30 @@ div{
 #f2>.nav>li{
     height:20px;
     display:inline-block;
-    font-size:22px;
+    font-size:20px;
     color:#333;
     text-align:center;
     line-height:20px;
-    margin:25px 15px;
+    margin:20px 15px;
     cursor:pointer;
 }
-#f2>.peijian{
+#peijian{
     font-size:26px;color:#333;
     position:absolute;
-    top:0px;left:178px;
+    top:506px;left:46px;
 }
 #f2>a{
     position:absolute;
-    top:0px;right:198px;
+    top:0px;right:50px;
     font-size:20px;
     color:#333;
     text-decoration:none;
+}
+.img{
+  width:3100px;
+}
+.img>li{
+  float:left;
 }
 .img>li>.fen8-2{
     position:relative;
@@ -216,10 +232,18 @@ div{
     border-right:10px solid #f5f5f5;
     background:#fff;
 }
+.img>li>.fen8-2:last-child{
+  border-right:0;
+}
 .img>li:after{
     content:"";
     display:block;
     clear:both;
+}
+.img::after{
+  content:"";
+  display: block;
+  clear:both;
 }
 .img>.fen8-2>.fennav{
     padding:20px 24px 20px 40px;
