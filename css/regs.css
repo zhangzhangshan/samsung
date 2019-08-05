@@ -1,0 +1,162 @@
+*{margin:0;padding:0;}
+/* body背景 */
+body{
+    background-color:#f7f7f7;
+}
+/* 最外层div regs 的样式 */
+#regs{
+    display:flex;
+    margin:0 auto;
+    justify-content:center;
+    padding:50px 0px;
+}
+/* 左侧div account 样式*/
+#regs>.account>h1{
+    padding-top:10px;
+    color:#000;
+    font-size:20px;
+    font-weight:bold;
+    padding-left:2px;
+}
+#regs>.account>p{
+    font-size: 4rem;
+    font-weight:bold;
+    margin-bottom:15px
+}
+#regs>.account>a{
+    color:#1428a0;
+    font-weight:bold;
+    font-size:18px;
+}
+/* 右侧div clause 样式 */
+#regs>.clause{
+    margin-top:60px;
+    padding-left:70px;
+    width:460px;
+}
+#regs>.clause>.form{
+    border-bottom:1px solid #ccc;
+}
+#regs>.clause>.form>p{
+    color:#000;
+    font-size:16px;
+    margin-bottom:30px;
+}
+#regs>.clause>.form input{
+    display:inline-block;
+    width:20px;height:20px;
+    margin-right:12px;
+    margin-bottom:20px;
+    vertical-align: top;
+    background-color:transparent;
+}
+/* #regs>.clause>.form>input:checked{
+    background:#1428a0 url(../icon/checked.png)
+} */
+#regs>.clause>.form a{
+    color:#1428a0;
+    font-size:16px;
+}
+/*----------------------- 选中图片样式--------------------- */
+/* #regs>.clause>.form>.posi{
+    position: relative;
+}
+#regs>.clause>.form #d1{
+    position: absolute;
+    top:1px; left:1px;
+    background-image:url(../icon/checked.png);
+    width:16px;
+    height:16px;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-position:center;
+    display:block;
+    z-index:100;
+}
+#regs>.clause>.form #d2{
+    position: absolute;
+    top:1px; left:1px;
+    background-image:url(../icon/checked.png);
+    width:16px;
+    height:16px;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-position:center;
+    display:none;
+    z-index:100;
+}
+#regs>.clause>.form #d3{
+    position: absolute;
+    top:1px; left:1px;
+    background-image:url(../icon/checked.png);
+    width:16px;
+    height:16px;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-position:center;
+    display:none;
+    z-index:100;
+}
+#regs>.clause>.form #d4{
+    position: absolute;
+    top:1px; left:1px;
+    background-image:url(../icon/checked.png);
+    width:16px;
+    height:16px;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-position:center;
+    display:none;
+    z-index:100;
+}
+#regs>.clause>.checkAgree #d5{
+    position: absolute;
+    top:1px; left:1px;
+    background-image:url(../icon/checked.png);
+    width:16px;
+    height:16px;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-position:center;
+    display:none;
+    z-index:100;
+}
+#regs>.clause>.checkAgree .posi{
+    position: relative;
+} */
+/* ----------------------------------------------------- */
+#regs .checkAgree{
+    margin-top:20px;
+}
+#regs .checkAgree input{
+    display:inline-block;
+    width:20px;height:20px;
+    margin-right:12px;
+    margin-bottom:50px;
+    vertical-align: top;
+    background-color:transparent;
+}
+#regs .checkAgree>label{
+    font-weight:bold
+}
+#regs>.clause>.checkAgree>button{
+    display:block;
+    width:100%;
+    margin-bottom:10px;
+    padding:8px 24px;
+    height:50px;
+    border-radius:10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+#regs>.clause>.checkAgree>#agree{
+    background-color:#1428a0;
+    color:#fff
+}
+#regs>.clause>.checkAgree>#agree:disabled{
+    background-color:#1428a0;
+    opacity:0.5;
+}
+#regs>.clause>.checkAgree>#reject{
+    background-color:transparent;
+}
