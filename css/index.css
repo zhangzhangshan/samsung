@@ -154,6 +154,24 @@ div{
     padding:19px 13px 14px 13px;
 }
 /* 2楼样式 */
+#f2 .p_left{
+    background-image:url(../images/btn_left.png);
+    width:58px;height:32px;
+    background-position:center;
+    background-repeat: no-repeat;
+    position: absolute;
+    top:136px;left:120px;
+    z-index:999;
+}
+#f2 .p_right{
+    background-image:url(../images/btn_right.png);
+    width:58px;height:32px;
+    background-position:center;
+    background-repeat: no-repeat;
+    position: absolute;
+    top:136px;right:120px;
+    z-index:999;
+}
 #f2{
     margin:0 143.5px;
     padding:15px 30px 22px 30px;
