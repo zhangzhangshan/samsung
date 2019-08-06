@@ -333,8 +333,8 @@
         </div>
     </div>
     <!--底部banner图-->
-    <div class="scetion row subbanner-section subbaner-full">
-        <div class="col-12-12 col-xs-10-10">
+    <div class="scetion row subbanner-section subbaner-full" style="width:1220px">
+        <div class="col-12-12 col-xs-10-10" style="marign:0 auto;">
             <div class="index-subbaner thumbnail">
                 <a href="javascript:void(0)">
                     <img src="images/bottomban.jpg" alt="">
@@ -647,14 +647,14 @@ function canmove(go){
     if(z==0){
         //如果smallImgs向左移动则不会出现错误
         if(go>z){
-            pUl.classList="transition img";
+            // pUl.classList="transition img";
             pUl.style.marginLeft=-z*pwidth+"px";
         }else{
             //如果pul向右移动则会出现空白，
             //就让pul瞬间整体向左移动4000，就不会出现空白
             //移动前需要将pul的过渡动画清除，则不会被用户发现移动的过程
-            pUl.classList="img";
-            pul.style.marginLeft=-pcount*pwidth+"px";
+            // pUl.classList="img";
+            pUl.style.marginLeft=-pcount*pwidth+"px";
             //设置一个定时器让前后去除ul class的操作有一定的间隔，
             setTimeout(function(){
                 //在定时器内重新调用canmove函数
@@ -665,11 +665,45 @@ function canmove(go){
     }
     //如果用户传入了参数，就让图片跳转到第几张
     z=go;
-    pul.style.marginLeft=-j*pwidth+"px";
+    pUl.style.marginLeft=-j*pwidth+"px";
+    if(z==pcount){
+        z=0;
+        setTimeout(function(){
+            //让ulimgs的位置回到初始位置
+            pUl.style.marginLeft=0
+        },500);
+    }
 }
 var ptimer=setInterval(function(){
     canmove();
 },3000)
+//为左右按钮绑定单击事件
+//查找到两个按钮
+var btnLeft=document.querySelector("#f2 .p_left");
+var btnRight=document.querySelector("#f2 .p_right");
+var tran=500;
+//console.log(btnLeft,btnRight)
+//定义一个开关
+var canClick=true;
+//定义一个不让用户在规定事件内点击移动ulimgs的函数
+function move(n){//这个n只可能是1或者-1
+    //如果开关是开着时，用户可以点击
+    if(canClick){
+        canmove(n+z);
+        console.log(n+z)
+        //关闭开关
+        canClick=false;
+        setTimeout(function(){
+            canClick=true;
+        },tran+100);
+    }
+}
+btnLeft.onclick=function(){
+    move(-1);
+}
+btnRight.onclick=function(){
+    move(1);
+}
 </script>
 </body>
 </html>

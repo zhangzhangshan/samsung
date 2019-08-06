@@ -106,12 +106,17 @@ a{
 #suphide{
     background-color:#fff;
     position:absolute;
-    top:525px;left:545px;
+    top:515px;left:355px;
     width:800px;height:100px;
-    z-index:300;
+    z-index:150;
 }
 #main>.details>.details_left{
-    /* overflow: hidden; */
+    position:absolute;
+    top:0px;left:-100px;
+}
+#main>.details>.details_right{
+   position:absolute;
+   top:0px;right:-236px;
 }
 #main>.details .details_img_lg{
    /* position:absolute;
@@ -154,24 +159,25 @@ a{
    width:100px;height:100px;
    background-image:url(../images/left.png);
    position:absolute;
-   top:453px;left:18px;
+   top:453px;left:0px;
    background-repeat: no-repeat;
    background-position:center;
    cursor: pointer;
-   /* z-index: 1000; */
+   z-index: 1000;
 }
 #main>.details .btnRight{
    width:100px;height:100px;
    background-image:url(../images/right.png);
    position:absolute;
-   top:453px;left:485px;
+   top:453px;left:455px;
    background-repeat: no-repeat;
    background-position:center;
    cursor: pointer;
-   /* z-index: 1000; */
+   z-index: 1000;
 }
 /* 文字详情 */
 #main>.details .details_content{
+   width:640px;
    position:absolute;
    top:0px;right:80px;
    /* background-color:#fff */
